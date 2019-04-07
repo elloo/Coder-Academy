@@ -38,7 +38,7 @@ function = gets.chomp.to_i
 
         owed = 0
         # Cycle through array of hashes
-        array_elem = $items.each do |hash|
+        $items.each do |hash|
             # Cycle through each hash in array
             hash.each do |key, value|
                 # Check if customer name matches input name
