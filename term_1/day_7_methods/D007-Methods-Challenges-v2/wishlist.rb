@@ -8,18 +8,25 @@
 #   - a method to display the contents of an array
 # Global variables may be helpful here!
 
-puts "What do you wish for?"
-item = gets.chomp.to_s.downcase
-list = []
+$list = []
+
+def list_add (item)
+    $list << item
+end
+
+def display_list
+    puts $list
+end
 
 while true
-    if item == true
-        list.push(item)
-    elsif item == "quit"
+    puts "What do you wish for? (Alternatively, type \"show list\" or \"quit\")"
+    item = gets.chomp.to_s.downcase
+    if item == "quit"
         break
+    elsif item == "show list"
+        display_list
     else
-        break
+        list_add (item)
     end
 end
 
-puts list
