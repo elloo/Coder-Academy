@@ -14,9 +14,9 @@ def list_add (item)
     $list << item
 end
 
-def display_list
-    puts $list
-end
+# def display_list
+#     puts $list
+# end
 
 while true
     puts "What do you wish for? (Alternatively, type \"show list\" or \"quit\")"
@@ -24,7 +24,11 @@ while true
     if item == "quit"
         break
     elsif item == "show list"
-        display_list
+        # display_list
+        $list.each { |item|
+            puts item.capitalize.center(20)
+            puts "-".center(20)
+        }
     else
         list_add (item)
     end

@@ -17,6 +17,7 @@ def my_map(numbers)
         numbers.shift()
         i += 1
     end
+    
     return numbers
 end
 
