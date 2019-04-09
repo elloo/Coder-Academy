@@ -1,4 +1,9 @@
-# # What is a block
+########################################
+
+# What is a block
+
+########################################
+
 # # A block is a piece of code passed to a method as an argument
 
 # names = ["Alex", "Saad", "Sally"]
@@ -58,17 +63,17 @@
 # # Whatever is in the block pipes can only be used inside that block
 # greet {|name, age| puts "Hello #{name}, you are #{age} years old."}
 
-names = ["Alex", "Saad", "Sally"]
-# names.each { |name| puts "Welcome #{name}"}
+# names = ["Alex", "Saad", "Sally"]
+# # names.each { |name| puts "Welcome #{name}"}
 
-def my_each(names)
-    i = 0
-    while i < names.length
-        yield(names[i])
-        i += 1
-    end
-end
-my_each(names){|name| puts "Welcome #{name}"}
+# def my_each(names)
+#     i = 0
+#     while i < names.length
+#         yield(names[i])
+#         i += 1
+#     end
+# end
+# my_each(names){|name| puts "Welcome #{name}"}
 
 # Alternative to the above
 # def my_each(names)
@@ -79,3 +84,51 @@ my_each(names){|name| puts "Welcome #{name}"}
 
 # my_each(names){|name| puts "Welcome #{name}"}
 
+########################################
+
+# OOPS (Object-Oriented Programming)
+
+########################################
+
+# Every piece of code is considered an object
+    # e.g. a chair is hard and used to sit on
+# Strings are objects and methods are their properties
+# Classes are classifications of objects
+    # Classes are like blueprints, objects are instances of those blueprints
+    # Class e.g. application form, object e.g. Nands application form
+
+# You cannot access an instance variable outside of a class
+# Needs to be accessed through a method
+class Human
+    # Initialize is mandatory for classes. It gets called every time .new is used.
+    def initialize(name)
+        @name = name
+    end
+    def name
+        @name
+    end
+    def walk
+        puts "I can walk"
+    end
+    # String methods need to be defined again within classes
+    def length
+        puts name.length
+    end
+    def upcase
+        puts name.upcase
+    end
+end
+
+# create an object
+
+person1 = Human.new("bob")
+person2 = Human.new("jo")
+p person1.name
+p person2.name
+
+# You can call the methods of a class from any object of that class
+person1.walk
+person2.walk
+
+person1.length
+person1.upcase
