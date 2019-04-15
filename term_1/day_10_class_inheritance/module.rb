@@ -1,5 +1,5 @@
 # Three main uses of modules: 
-# Modules are wrappers around the class used for a couple of reasons, one of them is NAME SPACING / organisations
+# Modules are wrappers around the class used for a couple of reasons, one of them is NAMESPACING / organisations
 # Another use case of module is to INCLUDE a piece of functionality into another class
 # THe third use case is that you can separate your code into different files
 

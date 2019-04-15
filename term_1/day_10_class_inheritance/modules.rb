@@ -1,4 +1,4 @@
-# modules are wrappers around the class used for a couple of reasons, on of the reason is name spacing
+# modules are wrappers around the class used for a couple of reasons, on of the reason is namespacing
 module CalendarDate
     class Date
         # def self.current_date
