@@ -15,9 +15,9 @@
 # Iterate on this challenge, to get the user to provide name and salary info, until user wants to exit and create objects and display total count of employees and also print out a nice message showing all the users added so far and their respective salaries.
 
 class Employee
-
+    attr_accessor :name, :salary
     @employee_count = 0
-    @@employee_info = []
+    @employee_info = []
 
 ### CLASS METHODS ###
 
@@ -25,21 +25,23 @@ class Employee
         def count
             puts "Total number of employees is #{@employee_count}."
         end
-        def add
+        def add(obj)
             @employee_count += 1
+            @employee_info.push(obj)
         end
         def display_all
-            @@employee_info.each{|elem| puts "#{elem[:name]}'s salary is $#{elem[:salary]}. "}
+            @employee_info.each{|elem| puts "#{elem.name}'s salary is $#{elem.salary}. "}
         end
     end
     
 ### INSTANCE METHODS ###
 
     def initialize(name, salary)
-        self.class.add
+        # self.class.add
         @name = name
         @salary = salary
-        @@employee_info.push({name: @name, salary: @salary})
+        self.class.add(self)
+        # @@employee_info.push({name: @name, salary: @salary})
     end
 
     def display
