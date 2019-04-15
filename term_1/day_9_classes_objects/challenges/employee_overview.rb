@@ -9,10 +9,9 @@
 #
 # Name = Sarah ; Salary = 20,000
 # Name = Ben ; Salary = 19,000
-# Name = John ; Salary = 19,500############################
+# Name = John ; Salary = 19,500
 
 class Employee
-    attr_accessor :count
     
     @count = 0
 

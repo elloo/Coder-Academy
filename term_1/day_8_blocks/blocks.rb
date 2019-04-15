@@ -15,6 +15,7 @@
 
 # # Curly brackets can replace the do keyword
 # # A block is from the start to the end of the curly brackets
+# What is in the pipes is called a "block variable"
 # names.each { |name | 
 #     puts "welcome #{name}"
 #     puts "How are you #{name}?"}
