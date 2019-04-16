@@ -32,17 +32,54 @@ civic.fuel_level # -> 50L in the tank
 =end
 
 class Vehicle
+    attr_accessor :make, :model, :fuel_level
+
     def initialize(make, model)
+        @make = make
+        @model = model
+        @max_fuel = 50
+        @fuel_level = 0
     end
-
-    class Car < Vehicle
+    def refuel(litres)
+        litres < @max_fuel ? @fuel_level = litres + @fuel_level : @fuel_level = @max_fuel
     end
-
-    class Motorbike < Vehicle
+    def fuel_level
+        puts "You have #{@fuel_level}L of fuel."
     end
 end
 
+class Car < Vehicle
+    def wheelie
+        puts "WHEELIE!"
+    end
+end
+
+class Motorbike < Vehicle
+    def initialize(make, model)
+        super
+        @max_fuel = 15
+    end
+    def wind_up_windows
+        puts "Winding up the windows..."
+    end
+end
+
+
 ### TESTS ###
 
-civic = Vehicle.new("Honda", "Civic") 
+# civic = Vehicle.new("Honda", "Civic") 
+# civic = Car.new("Honda", "Civic")
+low_rider = Motorbike.new("Harley Davidson", "Low Rider") 
+low_rider.refuel(100)
+low_rider.fuel_level
+low_rider.wind_up_windows
+
 civic = Car.new("Honda", "Civic")
+civic.fuel_level # -> 0L in the tank
+civic.refuel(10)
+civic.fuel_level # -> 10L in the tank
+civic.refuel(10)
+civic.fuel_level # -> 20L in the tank
+civic.refuel(100)
+civic.fuel_level # -> 50L in the tank
+civic.wheelie
