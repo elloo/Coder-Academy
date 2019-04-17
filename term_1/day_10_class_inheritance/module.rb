@@ -28,6 +28,7 @@ end
 end
 
 # Objects are not necessary to call class methods
+# The :: symbol is called a scope resolution operator 
 
 CalendarDate::Date.show_date
 MeeetingDate::Date.show_date
