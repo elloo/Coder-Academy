@@ -15,7 +15,7 @@ until exit
             customer1.place_order(user_choice)
         when 0
             #exit the app
-            puts "Delighted to have you at our kitchen, #{customer1.name}, your bill is $#{customer1.bill}"
+            puts "Delighted to have you at our kitchen, #{customer1.name}, and your bill is $#{customer1.bill}"
             # exit the loop
             exit = true
         else
