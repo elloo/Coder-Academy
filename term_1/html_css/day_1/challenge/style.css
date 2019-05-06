@@ -1,0 +1,65 @@
+/* NAVBAR */
+
+ul {
+    list-style-type: none;
+    display: block;
+}
+ul li {
+    float: left;
+    padding: 0 5px;
+}
+a,
+a:visited {
+    text-decoration: none;
+    color: black;
+}
+a:hover {
+    color: purple;
+}
+
+/* MAIN */
+
+#main-img {
+    margin: 50px auto;
+    float: right;
+    display: inline-block;
+}
+
+/* TYPOGRAPHY */
+
+h1 {
+    font-family: 'Anton', sans-serif;
+    display: inline-block;
+    padding: 0 40px;
+}
+
+p,
+a,
+th,
+td {
+    font-family: 'Roboto', sans-serif;
+}
+
+p {
+    padding: 40px 40px 0 40px;;
+}
+
+table {
+    display: inline-block;
+    width: 66%;
+    margin: 0 auto;
+    float: right;
+}
+
+/* FOOTER */
+
+form {
+    padding: 0 40px 0 40px;
+    display: block;
+}
+
+footer {
+    margin-right: 40px;
+    bottom: 0px;
+    position: fixed;
+}
