@@ -1,0 +1,338 @@
+/***********/
+/* GENERAL */
+/***********/
+
+body {
+    background: #E0C1B3;
+    margin: 0;
+}
+
+h1, h2 {
+    font-family: 'Dr Sugiyama', cursive;
+    color: #F4FFF8;
+}
+
+h1 {
+    font-size: 6em;
+    margin: 0;
+}
+
+#about h1 {
+    margin-top: -10%;
+}
+
+p, table, figcaption, ul {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 18px;
+    color: #F4FFF8;
+}
+
+figcaption {
+    font-size: 16px;
+}
+
+a,
+a:visited {
+    color: #F4FFF8;
+    text-decoration: none;
+}
+
+
+
+
+/********/
+/* GRID */
+/********/
+
+#container {
+    display: grid;
+    grid-template-columns: 6fr repeat(3, 1fr) 2fr;
+    grid-template-rows:  5vh 95vh;
+}
+
+#about {
+    background: #D89A9E;
+    grid-column: 1 / 3;
+    grid-row: 2 / 3;
+    z-index: 3;
+}
+
+#portfolio {
+    background: #C37D92;
+    padding-bottom: 50px;
+    grid-column: 1 / 4;
+    grid-row: 2 / 3;
+    z-index: 2;
+}
+
+#contact {
+    background: #846267;
+    padding-bottom: 50px;
+    grid-column: 1 / 5;
+    grid-row: 2 / 3;
+    z-index: 1;
+}
+
+
+
+
+/*************/
+/* SUB-GRIDS */
+/*************/
+
+section {
+    display: grid;
+    grid-template-rows: 0.5fr repeat(2, 1fr);
+    grid-template-columns: 300px repeat(3, 1fr);
+}
+
+header {
+    grid-column: 1 / 2;
+    grid-row: 1 / 2;
+    margin: 0 10px;
+}
+
+main {
+    grid-column: 1 / 3;
+    grid-row: 2 / 4;
+    margin: 10px 10px 0 10px;
+}
+
+aside {
+    grid-column: 3 / 5;
+    grid-row: 2 / 5;
+}
+
+
+
+
+/**********/
+/* NAVBAR */
+/**********/
+
+nav {
+    padding: 10px;
+    color: #F4FFF8;
+    border-radius: 0 50% 0 0;
+    font-family: 'Montserrat', sans-serif;
+    text-transform: uppercase;
+}
+
+#navAbout {
+    background: #D89A9E;
+    grid-column: 2 / 3;
+    grid-row: 1 / 2;
+}
+
+#navPortfolio {
+    background: #C37D92;
+    grid-column: 3 / 4;
+    grid-row: 1 / 2;
+}
+
+#navContact {
+    background: #846267;
+    grid-column: 4 / 5;
+    grid-row: 1 / 2;
+}
+
+
+
+
+/*********/
+/* ABOUT */
+/*********/
+
+#about header p {
+    margin-left: 30px;
+}
+
+#tagline {
+    margin-top: -20px;
+}
+
+#about img {
+    width: 250px;
+    border: 10px solid #F4FFF8;
+}
+
+#skills-icons {
+    font-size: 3em;
+    color: #F4FFF8;
+}
+
+#city0 {
+    transform: rotate(20deg);
+}
+
+#city1 {
+    transform: rotate(-10deg);
+}
+
+td {
+    padding: 0 10px;
+}
+
+
+
+
+
+/*************/
+/* PORTFOLIO */
+/*************/
+
+#portfolio main {
+    grid-row: 2 / 4;
+    grid-column: 1 / 4;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+}
+
+#portfolio aside {
+    grid-row: 1 / 2;
+    grid-column: 2 / 4;
+}
+
+#portfolio aside p {
+    background: #F4FFF8;
+    color: #5F635C;
+    padding: 10px;
+    margin: 5%;
+    right: 0;
+}
+
+#portfolio figure {
+    position: relative; 
+    height: 200px;
+    width: 200px;
+}
+
+#portfolio img {
+    height: 215px;
+    width: 215px;
+    border: solid 10px #F4FFF8;
+}
+
+#portfolio figcaption {
+    position: absolute;
+    background: rgba(0,0,0,0.5);
+    transition: .5s ease;
+    opacity: 0;
+    padding: 20px;
+    bottom: 0%;
+    width: 195px;
+}
+
+#portfolio figure:hover figcaption {
+    opacity: 1;
+}
+
+
+
+
+/***********/
+/* CONTACT */
+/***********/
+
+#contact main {
+    margin: 0 20px;
+    grid-row: 3 / 4;
+    grid-column: 1 / 2;
+}
+
+#contact aside {
+    grid-column: 3 / 4;
+    grid-row: 1 / 4;
+}
+
+#contact img {
+    display: block;
+    width: 200px;
+    bottom: 0;
+}
+
+#bear {
+    border-radius: 50%;
+    border: 10px solid #F4FFF8;
+    transform: rotate(-20deg);
+}
+
+#elephant {
+    border: 10px solid #F4FFF8;
+    transform: rotate(25deg);
+}
+
+
+
+
+/*****************/
+/* MEDIA QUERIES */
+/*****************/
+
+@media only screen and (max-width: 800px){
+
+    p, table {
+        font-size: 16px;
+    }
+
+    figcaption {
+        font-size: 14px;
+    }
+
+    #contact img {
+        display: inline;
+    }
+
+    /********/
+    /* GRID */
+    /********/
+
+    #container {
+        display: flex;
+        flex-direction: column;
+    }
+
+    /*************/
+    /* SUB-GRIDS */
+    /*************/
+
+    section {
+        display: flex;
+        flex-wrap: wrap;
+        flex-direction: column;
+        margin-top: 30px;
+        padding: 5px;
+    }
+
+    /**********/
+    /* NAVBAR */
+    /**********/
+
+    nav {
+        position: absolute;
+        padding: 10px;
+        top: 0;
+    }
+
+    #navAbout {
+        position: absolute;
+        right: 215px;
+    }
+
+    #navPortfolio {
+        position: absolute;
+        right: 105px;
+    }
+
+    #navContact {
+        position: absolute;
+        right: 10px;
+    }
+}
+
+/* @media only screen and (max-width: 1024px;){
+    #container {
+        padding: 20px 0;
+    }
+} */

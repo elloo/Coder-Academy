@@ -1,0 +1,28 @@
+div {
+    width: 200px;
+    height: 200px;
+    display: inline-block;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+#one {
+    background-color: red;
+    background-image: url("images/image1.jpg");
+    border-radius: 200px;
+    
+}
+
+#two {
+    background-color: blue;
+    background-image: url("images/image2.jpg");
+    border-radius: 0 200px
+
+}
+
+#three{
+    background-color: green;
+    background-image: url("images/image3.jpg");
+    border-radius: 20px 40px 100px 80px;
+
+}

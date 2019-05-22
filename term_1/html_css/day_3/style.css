@@ -1,0 +1,45 @@
+div {
+    height: 200px;
+    width: 200px;
+    display: inline-block;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+}
+
+#one {
+    background-color: blue;
+    background-image: url("images/image0.jpg");
+}
+
+#two {
+    background-color: red;
+    background-image: url("images/image1.jpg");
+}
+
+#three {
+    background-color: green;
+    background-image: url("images/image2.jpg");
+}
+
+h1 {
+    animation:spin 4s linear infinite;
+    display:inline-block;
+    padding: 0;
+    margin: 0;
+}
+
+@keyframes spin { 
+    0% {
+        color: green
+        transform: rotate(0deg)
+    }
+    50% {
+        color: red;
+        transform: rotate(180deg)
+    }
+    100% {
+        color: blue;
+        transform: rotate(360deg)
+    }
+}
