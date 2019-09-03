@@ -1,16 +1,17 @@
-var dogCount = 0;
-class Dog{
-    constructor(name){
+// var count = 0;
+class Dog {
+    constructor(name) {
         this.name = name;
-        this.dogCount ++;
+        Dog.count++;
     }
-
-    static dogCount(){
-        console.log(`The dog count is ${this.dogCount}`);
-    };
+    static dogCount() {
+        return `the dog count is ${Dog.count}`;
+    }
 }
+// initialze the count variable for the Dog class
+Dog.count = 0;
 
 var dog1 = new Dog("Tommy");
 var dog2 = new Dog("Rex");
 
-Dog.dogCount();
+console.log(Dog.dogCount())
