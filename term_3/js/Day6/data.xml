@@ -1,0 +1,28 @@
+<coder>
+    <student1>
+        <name>Derek</name>
+        <nickName>Derek</nickName>
+    </student1>
+    <student2>
+        <name>Salman</name>
+        <nickName>Meme Lord</nickName>
+    </student2>
+    <student3>
+        <name>American</name>
+        <nickName>Aidan</nickName>
+    </student3>
+</coder>
+
+<!-- js object: -->
+
+var jsObject = [
+    {name: "Derek", nickname: "Derek"},
+    {name: "Derek", nickname: "Derek"},
+    {name: "Derek", nickname: "Derek"},
+]
+
+var jsonData = "[
+    {"name": "Derek", "nickname": "Derek"},
+    {"name": "Derek", "nickname": "Derek"},
+    {"name": "Derek", "nickname": "Derek"},
+]"
