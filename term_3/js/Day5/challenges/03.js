@@ -10,26 +10,60 @@ Yes, we did this back in Ruby. You must create a Dictionary class that contains:
 - functions in the Dictionary class that can show a specific word if it exists in the array 
 ​
 */
+
 class Dictionary {
+
+    static getWords(){
+        console.log(Dictionary.words);
+    }
+    
+    static setWords(){
+        Dictionary.objectIndex;
+        Dictionary.words = [];
+    }
+    
+    static findIndex(word){
+        Dictionary.objectIndex = 0;
+        Dictionary.objectIndex = Dictionary.words.map(function(object){return object.word}).indexOf(word);
+    }
+
     constructor(word, definition){
         this.word = word;
         this.definition = definition;
         Dictionary.words.push({word: this.word, definition: this.definition});
     }
 
-    static getWords(){
-        console.log(Dictionary.words);
+    remove(){
+        Dictionary.findIndex(this.word);
+        Dictionary.words.splice(Dictionary.objectIndex, 1);
     }
 
-    static setWords(){
-        Dictionary.words = [];
+    updateWord(newWord){
+        Dictionary.findIndex(this.word);
+        Dictionary.words[Dictionary.objectIndex].word = newWord;
     }
 
-    
+    updateDef(newDef){
+        Dictionary.findIndex(this.word);
+        Dictionary.words[Dictionary.objectIndex].definition = newDef;
+    }
+
+    show(){
+        Dictionary.findIndex() != -1?
+        console.log(`${this.word}: ${this.definition}`) :
+        console.log("This word does not exist.")
+    }
 }
 
 Dictionary.setWords();
-var test = new Dictionary("Test", "Test test");
+var test1 = new Dictionary("Test1", "Test");
+var test2 = new Dictionary("Test2", "Test test");
+var test3 = new Dictionary("Test3", "Test test test");
+Dictionary.getWords();
+test1.show();
+test2.remove();
+test3.updateDef("Hlab");
+test3.updateWord("Blah");
 Dictionary.getWords();
 
 /*
