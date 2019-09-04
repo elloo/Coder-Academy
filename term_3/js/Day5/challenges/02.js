@@ -18,6 +18,15 @@ If the fruit's bites value is greater than 0:
 
 class Fruit{
 
+    static getFruitList(){
+        console.log(Fruit.list);
+    }
+
+    static setFruitList(){
+        Fruit.list = [];
+        Fruit.objectIndex;
+    }
+
     constructor(name, colour, bites){
         this.name = name;
         this.colour = colour;
@@ -29,33 +38,25 @@ class Fruit{
 
         this.bites -= bitesTaken;
 
-        var objectIndex = 0;
-        loop1:
+        Fruit.objectIndex = 0;
+        outerLoop:
         for (var arrayObject of Fruit.list){
             for (var key in arrayObject){
                 if (arrayObject[key] == this.name){
-                    break loop1;
+                    break outerLoop;
                 }
             }
-            objectIndex++;
+            Fruit.objectIndex++;
         }
-        Fruit.list[objectIndex].bites -= bitesTaken;
+        Fruit.list[Fruit.objectIndex].bites -= bitesTaken;
 
-        if (Fruit.list[objectIndex].bites <= 0){
+        if (Fruit.list[Fruit.objectIndex].bites <= 0){
             console.log(`${this.name} has been completely eaten.`);
-            Fruit.list.splice(objectIndex, 1);
+            Fruit.list.splice(Fruit.objectIndex, 1);
         } else {
             console.log(`${this.name} was delicious, there are ${this.bites} bites left.`)
         }
 
-    }
-
-    static getFruitList(){
-        console.log(Fruit.list);
-    }
-
-    static setFruitList(){
-        Fruit.list = [];
     }
 }
 
