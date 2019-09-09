@@ -24,7 +24,7 @@ The Pokemon API this code uses returns JSON. Process it and just show the Pokemo
         function compilePokemon(num, callback, arr = []){
             let url = `https://pokeapi.co/api/v2/pokemon/${Math.floor(Math.random() * 808)}`;
             $.get(url, (data) => {
-                arr.push(data.value);
+                arr.push(data.name);
                 if (num === arr.length){
                     return callback(arr);
                 }
@@ -32,17 +32,8 @@ The Pokemon API this code uses returns JSON. Process it and just show the Pokemo
             })
         }
         document.querySelector("#button").addEventListener("click", () => {
-            $.get(`https://pokeapi.co/api/v2/pokemon/${Math.floor(Math.random() * 808)}`, (poke1) => {
-                $.get(`https://pokeapi.co/api/v2/pokemon/${Math.floor(Math.random() * 808)}`, (poke2) => {
-                    $.get(`https://pokeapi.co/api/v2/pokemon/${Math.floor(Math.random() * 808)}`, (poke3) => {
-                        $.get(`https://pokeapi.co/api/v2/pokemon/${Math.floor(Math.random() * 808)}`, (poke4) => {
-                            $.get(`https://pokeapi.co/api/v2/pokemon/${Math.floor(Math.random() * 808)}`, (poke5) => {
-                                let pokeArray = [poke1, poke2, poke3, poke4, poke5];
-                                console.log(pokeArray);
-                            });
-                        });
-                    });
-                });    
+            compilePokemon(5, (data) => {
+                console.log(data);
             });
         });
     </script>
