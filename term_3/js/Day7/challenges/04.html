@@ -1,0 +1,39 @@
+<!-- CHALLENGE 4: Error Handling 
+Make sure you have either Challenge 1 or Challenge 3 completed, as you can use one of those as a starting point for this challenge. 
+​
+Add error handling to your API requests. 
+Using try-catch, throw, and switch-case statements, you should be able to log a message detailing what error has occured.
+For example, if the data from the API request is actually a 404 Not Found or 403 Forbidden error, you should be able to log that and not add the data to the Pokemon or Jokes array.
+​
+You could solve this in a few ways - using try-catch & throw, or using AJAX's built-in error handling. 
+Try AJAX first - read the docs!  -->
+
+<!DOCTYPE html>
+<html>
+<head>
+    <script
+    src="https://code.jquery.com/jquery-3.4.1.min.js"
+    integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo="
+    crossorigin="anonymous"></script>
+</head>
+<body>
+    <button id="button">Get Pokemon</button>
+    <script>
+        function compilePokemon(num, callback, arr = []){
+            let url = `https://pokeapi.co/api/v2/pokemon/${Math.floor(Math.random() * 808)}`;
+            $.get(url, (data) => {
+                arr.push(data.name);
+                if (num === arr.length){
+                    return callback(arr);
+                }
+                return compilePokemon(num, callback, arr);
+            })
+        }
+        document.querySelector("#button").addEventListener("click", () => {
+            compilePokemon(5, (data) => {
+                console.log(data);
+            });
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,61 @@
+<!-- CHALLENGE 2: Random User Data Fetcher 
+Sometime we need random user data in our app. There's an app for that! https://randomuser.me
+​
+Build on the provided HTML below.
+Examine the code. Think about what might happen when you run the file.
+Run the code in your browser. With console open, refresh and you should see a response object after a second or two.
+Examine the response object in console, find the property which contains the response JSON.
+Update your console.log to log only the response JSON, not the entire object.
+Create a new function: parseRandomUser
+Update your code to use a callback i.e. pass getRandomUser the parseRandomUser function.
+Your goal is to get parseRandomUser logging the random user details.
+Read about error-first callbacks. Can you implement error handling? The Random User request might not always respond the way we expect.
+
+Beast Mode
+Display random user details in the browser
+Add a button to grab a new random user​
+And yes, this is using XMLHttpRequest -- you might have to read some documentation on this one. -->
+
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>Callbacks & JSON</title>
+
+  </head>
+  <body>
+
+    <p>Empty HTML doc :) Some JS is running. Check your Console!</p>
+
+    <script>
+    getRandomUser = (parseRandomUser) => {
+      // This function uses AJAX to hit the random user API.
+      // More info: https://randomuser.me
+
+      var request = new XMLHttpRequest();
+      request.open('GET', 'https://randomuser.me/api/', true);
+      request.onload = function () {
+        /* You'll start here */
+        let parsedResponse = JSON.parse(request.response);
+        parseRandomUser(null, parsedResponse);
+      };
+
+      request.send();
+    }
+    
+    // https://github.com/30-seconds/30-seconds-of-interviews/blob/master/questions/node-error-first-callback.md
+    function parseRandomUser(err, response){
+        if(err){
+            return console.log(err);
+        }
+        let objKeys = Object.keys(response.results[0]);
+        for (var i = 0; i < objKeys.length; i++){
+            console.log(`${objKeys[i]}: `);
+            console.log(response.results[0][objKeys[i]]);
+        }
+    }
+
+    getRandomUser(parseRandomUser); // Execute the function
+    </script>
+  </body>
+</html>
