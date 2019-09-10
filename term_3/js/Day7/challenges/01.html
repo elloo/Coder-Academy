@@ -1,0 +1,41 @@
+<!--
+CHALLENGE 1: Pokemon Team Randomizer
+​
+1.1: Escaping Callback Hell
+Modify the code provided below so that it doesn't look like "callback hell", and instead uses nice functions.
+Open it in your browser & press the "Get Jokes" button to see the jokes appear in the Console log.
+​
+​
+1.2: Nicer Formatting For Data 
+The Pokemon API this code uses returns JSON. Process it and just show the Pokemon's name.  
+-->
+
+<!DOCTYPE html>
+<html>
+<head>
+    <script
+    src="https://code.jquery.com/jquery-3.4.1.min.js"
+    integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo="
+    crossorigin="anonymous"></script>
+</head>
+<body>
+    <button id="button">Get Pokemon</button>
+    <script>
+        function compilePokemon(num, callback, arr = []){
+            let url = `https://pokeapi.co/api/v2/pokemon/${Math.floor(Math.random() * 808)}`;
+            $.get(url, (data) => {
+                arr.push(data.name);
+                if (num === arr.length){
+                    return callback(arr);
+                }
+                return compilePokemon(num, callback, arr);
+            })
+        }
+        document.querySelector("#button").addEventListener("click", () => {
+            compilePokemon(5, (data) => {
+                console.log(data);
+            });
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js"
+        integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
+</head>
+
+<body>
+    <button id="button">Get Jokes</button>
+    <script>
+         function compileJokes(num, callback, arr = []) {
+                let url = "https://api.chucknorris.io/jokes/random";
+                $.get(url, (data) => {
+                    arr.push(data.value);
+                    if (num === arr.length) {
+                        return callback(arr);
+                    }
+                    return compileJokes(num, callback, arr);
+                });
+            }
+            document.querySelector("#button").addEventListener("click", () => {
+                compileJokes(10, (data) => {
+                    console.log(data);
+                });
+            });
+    </script>
+</body>
+
+</html>
