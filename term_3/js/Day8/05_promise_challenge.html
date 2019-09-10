@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+    ​
+<head>
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js"
+        integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
+</head>
+
+<body>
+    <button id="button">Get Jokes</button>
+    <script>
+        function jokeGen(){
+            return new Promise((resolve, reject) => {
+                $.get("https://api.chucknorris.io/jokes/random", (joke) => {
+                    if (joke.value){
+                        resolve(joke.value)
+                    }
+                    reject ("Something went wrong");
+                }
+            })
+        }
+
+        document.querySelector("#button").addEventListener("click", () =>
+        let jokes = [];
+        jokeGen()
+        .then(joke1 => (
+            jokes.push(joke1)
+            return jokeGen()
+        )
+        .then(joke2) => (
+            jokes.push(joke2)
+            return jokeGen()
+        )
+        .then(joke3) => (
+            jokes.push(joke3)
+            console.log(jokes)
+        )
+        .catch(err) => console.log(err);
+        ))
+
+        document.querySelector("#button").addEventListener("click", () => {
+            $.get("https://api.chucknorris.io/jokes/random", (joke1) => {
+                $.get("https://api.chucknorris.io/jokes/random", (joke2) => {
+                    $.get("https://api.chucknorris.io/jokes/random", (joke3) => {
+                        $.get("https://api.chucknorris.io/jokes/random", (joke4) => {
+                            $.get("https://api.chucknorris.io/jokes/random", (joke5) => {
+                                let jokeArray = [joke1, joke2, joke3, joke4, joke5];
+                                console.log(jokeArray);
+                            });
+                        });
+                    });
+                });
+            });
+        });
+    </script>
+</body>
+
+</html>
