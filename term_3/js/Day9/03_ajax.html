@@ -25,7 +25,8 @@
             request.send();
             // on success
             request.onload = (response) => {
-                console.log(request.response[0]); 
+                 const parsedResults = JSON.parse(request.response)
+                console.log(parsedResults.results[0].name.first);
             }
             // on error
             request.onerror = (err) => {
