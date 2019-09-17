@@ -1,0 +1,43 @@
+<!-- 
+    CHALLENGE 2: Event Excitement
+
+    Check out this page for a list of all events you can respond to or watch with Javascript:
+    https://www.w3schools.com/jsref/dom_obj_event.asp
+    ​
+    This "challenge" is a bunch of mini-challenges based on some of the events you can use from that page. 
+    If you get stuck on one, leave it & try another. Come back to tricky challenges later.
+    Good luck!
+
+    2.1 - Even Milliseconds Spacebar
+    The page should tell the user about this game & to press the spacebar.
+    The game is this:
+    The player has to hold down the spacebar to start the game.
+    If they let go of the spacebar when the current time's milliseconds value is an even number, they win. If it's odd, they lose.
+    While they hold down the spacebar, cycle through some messages. You could tease them or encourage them.
+    While they hold down the spacebar, also show the current time with milliseconds visible. 
+    When they let go of the spacebar, tell the user what the current time is & if they won or lost.
+-->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Challenge 2.1</title>
+</head>
+<body>
+    <h1>Challenge 2.1</h1>
+    <div></div>
+    <p>Press spacebar to start and stop timer. Even times win!</p>
+
+    <script>
+        document.body.keypress(function (e) {
+        if (e.key === ' ' || e.key === 'Spacebar') {
+            e.preventDefault();
+            console.log('Space pressed');
+        }
+        })
+    </script>
+</body>
+</html>
