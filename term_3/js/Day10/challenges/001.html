@@ -1,0 +1,105 @@
+<!-- 
+CHALLENGE 1: Customizable Webpage
+    Create a webpage that lets you cycle through different colours and fonts for sections of a page whenever the user clicks a button.
+    For example, you might have a traditional 3-column layout with a navbar & footer.
+    In each of those layout sections should be a button that lets you cycle through some colours for the background, and
+    a button that lets you cycle through some fonts for the text. 
+
+    You can grab some good layout starter code here:
+    https://www.w3schools.com/css/css_website_layout.asp 
+
+    You can check out some good web colours here:
+    https://www.w3schools.com/html/html_colors.asp
+    ​
+    You can check out easy-to-use web fonts here:
+    https://fonts.google.com/
+
+    You should be able to loop through arrays for colours & arrays for fonts for each section of the layout,
+    just by clicking a button.​
+-->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Challenge 01</title>
+    <style>
+    /* Create three equal columns that floats next to each other */
+    .column {
+    float: left;
+    width: 33%;
+    height: 80vh;
+    }
+
+    .row {
+        width: 99.3%;
+        height: 10vh;
+        clear: both;
+    }
+
+
+    /* Responsive layout - makes the three columns stack on top of each other instead of next to each other on smaller screens (600px wide or less) */
+    @media screen and (max-width: 600px) {
+    .column {
+        width: 100%;
+    }
+    }
+    </style>
+</head>
+<body>
+    <div class="row">
+        <button onclick="changeColor(this)">Change color</button>
+        <button onclick="changeFont(this)">Change font</button>
+        This is a test.
+    </div>
+    <div class="column">
+        <button onclick="changeColor(this)">Change color</button>
+        <button onclick="changeFont(this)">Change font</button>
+        This is a test.
+    </div>
+    <div class="column">
+        <button onclick="changeColor(this)">Change color</button>
+        <button onclick="changeFont(this)">Change font</button>
+        This is a test.
+    </div>
+    <div class="column">
+        <button onclick="changeColor(this)">Change color</button>
+        <button onclick="changeFont(this)">Change font</button>
+        This is a test.
+    </div>
+    <div class="row">
+        <button onclick="changeColor(this)">Change color</button>
+        <button onclick="changeFont(this)">Change font</button>
+        This is a test.
+    </div>
+
+    <script>
+        var i = 0;
+        function changeColor(btn){
+            var colorArray = ["tomato", "orange", "dodgerblue", "mediumseagreen", "gray", "slateblue", "violet", "lightgrey"];
+
+            btn.addEventListener("click", function(){
+                if (i > 7){
+                    i = 0;
+                }
+                btn.closest("div").style.background = colorArray[i];
+                i++
+            })
+        }
+
+        function changeFont(btn){
+            var fontArray = ["Arial", "Helvetica", "Times New Roman", "Courier New"]
+
+            btn.addEventListener("click", function(){
+                if (i > 3){
+                    i = 0;
+                }
+                btn.closest("div").style.fontFamily = fontArray[i];
+                i++
+            })
+        }
+    </script>
+</body>
+</html>

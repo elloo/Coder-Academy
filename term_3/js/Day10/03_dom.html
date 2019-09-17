@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        .blue{ 
+            color: blue;
+        }
+    </style>
+</head>
+<body>
+    <h1>WELCOME!</h1>
+    <p>Understanding DOM</p>
+    <div>
+        <ul>
+            <li>Add DOM Elements</li>
+            <li>Query DOM Elements</li>
+            <li>Change DOM Elements</li>
+            <li>Remove DOM Elements</li>
+        </ul>
+    </div>
+    <script>
+        // Adding DOM elements
+        var myDiv = document.createElement("div");
+        document.body.appendChild(myDiv);
+
+        var content = document.createElement("p");
+        myDiv.appendChild(content);
+        // myDiv.innerHTML = "<p>DOM Manipulation is awesome</p>";
+        content.innerHTML = "DOM manipulation is awesome";
+
+        // Querying DOM elements
+        var myUl = document.querySelector("ul");
+        console.log(myUl);
+
+        var myLi = document.createElement("li");
+        myUl.appendChild(myLi);
+        myLi.innerHTML = "new Li";
+
+        // Adding classes
+        var title = document.querySelector("h1");
+        title.classList.add("blue")
+
+        title.style.color = "red";
+        title.style.paddingLeft = "40%";
+        
+        // Remove class
+        title.classList.remove("blue");
+
+        // querySelectorAll and getElementsByTagName
+        var li1 = document.querySelectorAll("li");
+        console.log(li1);
+        var li2 = document.getElementsByTagName("li");
+        console.log(li2);
+
+        // getElementsByTagName selects elements created after the selection is created (ie. line 54)
+        var newLi = document.createElement("li");
+        myUl.appendChild(newLi);
+        console.log(li1);
+        console.log(li2);
+
+
+    </script>
+</body>
+</html>
