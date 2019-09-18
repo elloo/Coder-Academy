@@ -1,7 +1,7 @@
 function user1(){
     return new Promise((resolve, reject) => {
         setTimeout(() => {
-            reject("I can't find this user")
+            resolve("David")
         }, 2000);
     })
 }

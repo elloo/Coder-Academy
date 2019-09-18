@@ -95,7 +95,7 @@ class Pet {
     }
 
     static naturalHappiness(){
-        console.log("testing: " + this.hunger);
+        console.log("testing: " + this.thirst);
         if (this.hunger <= 0 || this.thirst <= 0){
             this.happiness++;
             console.log("Testing");

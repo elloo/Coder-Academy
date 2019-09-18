@@ -4,7 +4,17 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Document</title>
+    <title>Day 11: Challenge 1</title>
+    <style>
+        body {
+            background-size: cover;
+        }
+        .col {
+            float: left;
+            width: 33%;
+            height: 100vh;
+        }
+    </style>
 </head>
 <body>
     
@@ -41,28 +51,43 @@
         
                 You should be able to call both APIs and only use the first image that comes back.
      -->
+<div class="col"></div>
+<div class="col">
+    <div id="marsWeather"></div>
+</div>
+<div class="col"></div>
+<script>
+    (function setBackground(){
+        let request = new XMLHttpRequest();
+        
+        request.open(
+            "GET",
+            "https://api.nasa.gov/planetary/apod?api_key=lwdWhQTNShVkonZk0xqEfveB6qFGEcLWQTSFJVbd"
+        )
 
+        request.send();
 
+        request.onload = (response) => {
+            const parsedResults = JSON.parse(request.response)
+            document.body.style.backgroundImage = "url("+ parsedResults.hdurl +")";
+        }
+    })()
 
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Day 11: Challenge 1</title>
-    <style>
-    body {
-        background-image: image(https://api.nasa.gov/planetary/apod?api_key=lwdWhQTNShVkonZk0xqEfveB6qFGEcLWQTSFJVbd)
+    function marsWeather(){
+        let request = new XMLHttpRequest();
+
+        request.open(
+            "GET",
+            "https://api.nasa.gov/insight_weather/?api_key=KlFxtP5mqcU6bYKkZ1v9zLhS73GfYdy5a7JU0IeI&feedtype=json&ver=1.0"
+        )
+        request.send()
+
+        request.onload = () => {
+            const parsedResults = JSON.parse(request.response)
+            document.getElementById("marsWeather")
+        }
     }
-    </style>
-</head>
-<body>
-    
-</body>
-</html>
-
-
+</script>
 
 
 

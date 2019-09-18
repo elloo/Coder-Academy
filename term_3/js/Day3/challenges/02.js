@@ -10,8 +10,17 @@ _E.g._ random_number_generator(5) should return [23,34,1,2,13] ... not the same 
 Can you ensure these numbers will be unique?
 */
 
-var numGenerator = (amount) => {
+var numGenerator = () => {
+    var numList = [];
+
+    var amount = prompt("How many numbers would you like?");
     while (amount > 0){
-        
+        let genResult = Math.floor(Math.random() * Math.floor(100));
+        if (numList.includes(genResult) == false){
+            amount--;
+            numList.push(genResult);
+        }
     }
+
+    console.log(numList);
 }

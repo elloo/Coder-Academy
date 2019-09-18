@@ -16,10 +16,17 @@
         // $.get(url, cb)
         document.getElementById("button").addEventListener("click", () => {
             $.get("https://api.chucknorris.io/jokes/random", (joke1) =>
-                $.get("https://api.chucknorris.io/jokes/random", (joke2) => 
-                    $.get("https://api.chucknorris.io/jokes/random", (joke3) => 
-                        $.get("https://api.chucknorris.io/jokes/random", (joke4) => 
-                            $.get("https://api.chucknorris.io/jokes/random", (joke5) => let jokeArray = [joke1.value, joke2.value, joke3.value, joke4.value, joke5.value];
+                {$.get("https://api.chucknorris.io/jokes/random", (joke2) => 
+                    {$.get("https://api.chucknorris.io/jokes/random", (joke3) => 
+                        {$.get("https://api.chucknorris.io/jokes/random", (joke4) => 
+                            {$.get("https://api.chucknorris.io/jokes/random", (joke5) => let jokeArray = [joke1.value, joke2.value, joke3.value, joke4.value, joke5.value];
+                            console.log(jokeArray);
+                            )};
+                        )};
+                    )};
+                )};
+            )};
+
             console.log(jokeArray);
         });
         console.log("execute something else");
