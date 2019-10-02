@@ -1,0 +1,17 @@
+
+<table class="table">
+    <thead>
+        <th scope="col">Name</th>
+        <th scope="col">Email</th>
+        <th scope="col">Enquiry</th>
+    </thead>
+    <tbody>
+        {{#each data}}
+        <tr>
+            <td>{{this.name}}</td>
+            <td>{{this.email}}</td>
+            <td>{{this.enquiry}}</td>
+        </tr>
+        {{/each}}
+    </tbody>
+</table>

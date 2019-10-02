@@ -1,0 +1,16 @@
+{
+  "name": "myApp",
+  "version": "1.0.0",
+  "description": "My first app",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "node-server": "./node_modules/.bin/nodemon \"node\" app.js",
+    "express-server": ".node_modules/.bin/nodemon \"node\" express.js"
+  },
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "nodemon": "^1.19.3"
+  }
+}
