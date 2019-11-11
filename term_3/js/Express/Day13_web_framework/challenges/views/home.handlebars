@@ -1,0 +1,16 @@
+    <script>
+        (function(){ 
+            var stampArray = [];
+            var stampObject = {
+                location: "{{stamp.location}}",
+                time: "{{stamp.time}}"
+            };
+            stampArray.push(stampObject);
+            stampArray = stampArray.concat(JSON.parse(localStorage.getItem("stampArray")));
+            localStorage.setItem("stampArray", JSON.stringify(stampArray));
+            console.log(stampArray);
+        })()
+    </script>
+
+<img src="{{flag}}">
+<p>Timezone: {{timezone}}</p>

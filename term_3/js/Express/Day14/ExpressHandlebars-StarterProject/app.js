@@ -86,29 +86,34 @@ app.use(bodyParser.json());
 
 
 async function getRandomPoke() {
-    let urlToVisit = `https://pokeapi.co/api/v2/pokemon/${Math.floor(Math.random() * 808)}`;
-    let response = await fetch(urlToVisit);
-    let data = await response.json()
-    return data;
+    let pokeArray = []
+    for (let i = 0; i < 6; i++){
+        let pokeObj = {};
+        let urlToVisit = `https://pokeapi.co/api/v2/pokemon/${Math.floor(Math.random() * 808)}`;
+        let response = await fetch(urlToVisit);
+        let data = await response.json()
+        console.log(data.types);
+        pokeObj.name = data.name;
+        pokeObj.img = data.sprites.front_default;
+        data.types[0].slot == 2 ? pokeObj.type1 = data.types[1].type.name : pokeObj.type1 = false;
+        pokeObj.type0 = data.types[0].type.name;
+        console.log(`Type 1: ${pokeObj.type1}`);
+        console.log(`Type 0: ${pokeObj.type0}`);
+        pokeArray.push(pokeObj);
+    }
+    return pokeArray;
 }
 
 // routing: 
 app.get('/', (req, res) => {
     // call or run other code here
-    let pokeName;
-    let pokeImg;
-
     getRandomPoke()
-        .then(data => {
-            pokeName = data.name;
-            pokeImg = data.sprites.front_default;          
+        .then(array => {
+            res.render('index', {
+                pokemon: array
+            })            
         })
         .catch(err => console.log(err))
-
-    res.render('index', {
-        name: pokeName,
-        img: pokeImg
-    })  
 
 });
 

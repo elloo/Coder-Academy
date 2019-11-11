@@ -1,2 +1,21 @@
-<h1>{{ name }}</h1>
-<img src="{{ img }}">
+{{#each pokemon}}
+<div style="
+float: left; 
+margin: 2px;
+padding: 5px;
+border: solid 1px black;
+height: 300px;
+width: 175px">
+  <h1>{{@index}}) {{this.name}}</h1>
+  <p><img src="{{this.img}}"></p>
+  <p>Type 1: {{this.type0}}</p>
+
+  <p>Type 2: 
+  {{#if this.type1}}
+  {{this.type1}}
+  {{else}}
+  n/a
+  {{/if}}
+  </p>
+</div>
+{{/each}}
